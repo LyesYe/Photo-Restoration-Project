@@ -130,3 +130,5 @@ dist
 
 server/env
 server/__pycache__
+model
+dump
