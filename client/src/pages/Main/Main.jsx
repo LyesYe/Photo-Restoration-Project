@@ -9,25 +9,36 @@ function Main() {
 const handleUploadImage = async(ev) => {
     ev.preventDefault();
 
-    const data = new FormData();
+    // console.log(img_obj)
+
+    const filou = new FormData();
     // data.append('filename', img_obj['filename']);
-    data.append('file', img_obj.file);
+    filou.append('file', img_obj);
 
     try {
 
       console.log(img_obj)
 
 
-      for (var pair of data.entries()) {
+      for (var pair of filou.entries()) {
         console.log(pair[0]+ ', ' + pair[1]); 
     }
   
+      // const response = await axios({
+      //   method: "POST",
+      //   url:"http://127.0.0.1:5000/upload",
+      //   headers: { "content-type": file.type },
+      //   data: {
+      //     data: img_obj,
+      //   },
+        
+      // })
       const response = await axios({
         method: "POST",
         url:"http://127.0.0.1:5000/upload",
         headers: { "content-type": "multipart/form-data" },
         data: {
-          data: data,
+          data: filou,
         },
         
       })
@@ -47,18 +58,18 @@ const handleUploadImage = async(ev) => {
 
   return (
     <div>
-      <form onSubmit={(e) => handleUploadImage(e)}>
+      <form onSubmit={(e) => handleUploadImage(e)} >
         <div>
           <input type="file" name='file'  
-          onChange={(e) => { setImg_obj({ file: e.target }); console.log(e.target.files)
+          onChange={(e) => { setImg_obj(e.target.files[0] ); console.log(e.target.files[0])
           }} />
         </div>
 
         <br />
         <div>
-          <button>Upload</button>
+          <button type="submit" >Upload</button>
         </div>
-        <img  alt="img" />
+        {/* <img  alt="img" /> */}
       </form>
     </div>
   )

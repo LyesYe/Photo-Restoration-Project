@@ -76,16 +76,16 @@ const handleUploadImage = async(ev) => {
 
   return (
     <div>
-      <form onSubmit={(e) => handleUploadImage(e)}>
+      <form  onSubmit={(e) => handleUploadImage(e)}>
         <div>
-          <input type="file"  
+          <input type="file" name='file' 
           onChange={(e) => { setImg_obj({ file: e.target.files[0] }); console.log(e.target.files)
           }} />
         </div>
 
         <br />
         <div>
-          <button>Upload</button>
+          <button type="submit">Upload</button>
         </div>
         <img  alt="img" />
       </form>
