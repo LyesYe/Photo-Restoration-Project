@@ -127,8 +127,11 @@ dist
 .pnp.*
 
 
+client/node_modules
 
-server/env
+server
+server2
+temp
 server/__pycache__
 model
 dump
