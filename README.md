@@ -17,7 +17,10 @@ npm start
 ## Installation
 
 - Cloner ou telechager ce dossier et effectuer les étapes suivantes : 
- 
+- Étape 0
+```
+cd ./server
+```
 - Étape 1 
 ```
 cd Face_Enhancement/models/networks/
