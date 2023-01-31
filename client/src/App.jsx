@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import ImageUploading from "react-images-uploading";
 import axios from "axios";
 
 import "./App.scss";
+import { useEffect } from "react";
 
 function App() {
+
+  const [loading, setLoading] = useState(false);
+
   const outputUrl = "../../output/final_output/";
 
   const [outImage, setoutImage] = React.useState("");
@@ -13,6 +17,10 @@ function App() {
   const [images, setImages] = React.useState([]);
   const [done, setDone] = React.useState(false);
   const [work, setWork] = React.useState(false);
+
+
+  
+
 
   const maxNumber = 69;
   const onChange = (imageList, addUpdateIndex) => {
@@ -31,7 +39,7 @@ function App() {
 
     const filou = new FormData();
     filou.append("file", images[0].file);
-
+    setLoading(true);
     const response = await axios({
       responseType: "blob",
       method: "POST",
@@ -40,7 +48,7 @@ function App() {
       data: filou,
     }).then((response) => {
       const data = response.data;
-
+      setLoading(false);
       console.log("-----------------------------------------------------");
       console.log("I received");
       console.log(data);
@@ -60,6 +68,12 @@ function App() {
 
   return (
     <div className="App">
+
+      {loading && <div className="loader-container">
+      	  <div className="spinner"></div>
+        </div>}
+
+
       <ImageUploading
         multiple
         value={images}
@@ -135,7 +149,7 @@ function App() {
           </div>
         )}
       </ImageUploading>
-      {/* <br /> */}
+
     </div>
   );
 }
