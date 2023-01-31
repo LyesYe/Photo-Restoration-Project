@@ -2,9 +2,9 @@
 
 ## Installation
 
-Cloner ou telechager ce dossier et effectuer les étapes suivantes : 
+- Cloner ou telechager ce dossier et effectuer les étapes suivantes : 
  
--1 
+- Étape 1 
 ```
 cd Face_Enhancement/models/networks/
 git clone https://github.com/vacancy/Synchronized-BatchNorm-PyTorch
@@ -12,7 +12,7 @@ cp -rf Synchronized-BatchNorm-PyTorch/sync_batchnorm .
 cd ../../../
 ```
 
--2
+- Étape 2
 ```
 cd Global/detection_models
 git clone https://github.com/vacancy/Synchronized-BatchNorm-PyTorch
@@ -20,8 +20,7 @@ cp -rf Synchronized-BatchNorm-PyTorch/sync_batchnorm .
 cd ../../
 ```
 
--3
-Download the landmark detection pretrained model
+- Étape 3
 
 ```
 cd Face_Detection/
@@ -31,7 +30,7 @@ copier coller http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 su
 bzip2 -d shape_predictor_68_face_landmarks.dat.bz2 (effectuer via un terminal)
 cd ../
 ```
--4
+- Étape 4
 Telecharger le modèle pré-entrainé 
 ```
 cd Face_Enhancement/
@@ -46,14 +45,14 @@ unzip global_checkpoints.zip
 cd ../
 ```
 
--6
+- Étape 5
 Installez les dépendences
 
 ```bash
 pip install -r requirements.txt
 ```
 
--7 
+- Étape 6
 Lancez le backend en allant vers la racine du dossier principal et faite : 
 ```
 cd ./server
